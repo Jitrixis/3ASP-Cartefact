@@ -19,6 +19,7 @@ namespace Cartefact.Migrations
             context.Roles.AddOrUpdate(
                 r => r.RoleName,
                 new Role { Id = Guid.NewGuid().ToString(), RoleName = "Admin" },
+                new Role { Id = Guid.NewGuid().ToString(), RoleName = "Trusted" },
                 new Role { Id = Guid.NewGuid().ToString(), RoleName = "User" }
             );
             context.SaveChanges();

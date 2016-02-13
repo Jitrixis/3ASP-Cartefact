@@ -21,6 +21,7 @@ namespace Cartefact.Models
 
         public string Description { get; set; }
 
+        [Display(Name="Buying date")]
         [DataType(DataType.Date)]
         public DateTime BuyingDate { get; set; }
 

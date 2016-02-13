@@ -13,6 +13,7 @@ namespace Cartefact.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Id { get; set; }
 
+        [Display(Name="Status")]
         public string StatusName { get; set; }
 
         public virtual ICollection<Car> Cars { get; set; }

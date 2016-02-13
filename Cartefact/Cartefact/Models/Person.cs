@@ -22,10 +22,15 @@ namespace Cartefact.Models
 
         public string Name { get; set; }
 
+        [Display(Name="Pseudo")]
         public string Nickname { get; set; }
 
+        [Display(Name = "Driving habits")]
+        [DataType(DataType.MultilineText)]
         public string DrivingHabits { get; set; }
 
+        [Display(Name = "Driver experience")]
+        [DataType(DataType.MultilineText)]
         public string DriverExperience { get; set; }
 
         public string PasswordSalt { get; set; }

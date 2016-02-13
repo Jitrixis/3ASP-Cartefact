@@ -227,6 +227,7 @@
     <Content Include="Views\Persons\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Profil\Index.cshtml" />
+    <Content Include="Views\Profil\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
