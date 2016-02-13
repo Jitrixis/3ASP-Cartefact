@@ -63,5 +63,37 @@
             }
         </dd>
 
+        <hr />
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <div class="thumbnail">
+                        <h4>Peugeot <small>207</small></h4>
+                        <p>
+                            <button type="button" class="btn btn-default btn-xs">Noir</button>
+                            <button type="button" class="btn btn-default btn-xs">2006</button>
+                            <button type="button" class="btn btn-default btn-xs">175 000 km</button>
+                        </p>
+                        <p>
+                            Jolie Voiture
+                        </p>
+                        <p>
+                            <strong>Location : </strong><em>Loire</em>
+                            <strong>Status : </strong><em>Open</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <div class="thumbnail">
+                        <p>
+                            @Html.ActionLink("Add a car", "AddCar", null, new { @class = "btn btn-primary", role = "button" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </dl>
 </div>

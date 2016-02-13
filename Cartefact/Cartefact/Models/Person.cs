@@ -23,6 +23,7 @@ namespace Cartefact.Models
         public string Name { get; set; }
 
         [Display(Name="Pseudo")]
+        [RegularExpression(@"^\w*$", ErrorMessage="Your pseudo must contains only characters and digits")]
         public string Nickname { get; set; }
 
         [Display(Name = "Driving habits")]

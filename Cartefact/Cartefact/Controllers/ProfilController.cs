@@ -30,6 +30,22 @@ namespace Cartefact.Controllers
             return View(person);
         }
 
+        // GET: Profil/Member/id
+        [AllowAnonymous]
+        public ActionResult Member(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Person person = db.Persons.FirstOrDefault(p => p.Nickname == id);
+            if (person == null)
+            {
+                return HttpNotFound();
+            }
+            return View(person);
+        }
+
         // GET: Profil/Edit
         public ActionResult Edit()
         {

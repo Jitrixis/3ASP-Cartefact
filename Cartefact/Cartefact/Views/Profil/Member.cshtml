@@ -1,0 +1,66 @@
+﻿@model Cartefact.Models.Person
+
+@{
+    ViewBag.Title = "Profil";
+}
+
+<h2>
+    Profil
+</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nickname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrivingHabits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrivingHabits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DriverExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DriverExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.RoleName)
+        </dt>
+
+        <dd>
+            @if (Model.Role.RoleName == "Admin")
+            {
+                <span class="label label-primary">Staff</span>
+            }
+            else if (Model.Role.RoleName == "Trusted")
+            {
+                <span class="label label-success">Trusted</span>
+            }
+            else
+            {
+                <span class="label label-default">Regular</span>
+            }
+        </dd>
+
+    </dl>
+</div>
