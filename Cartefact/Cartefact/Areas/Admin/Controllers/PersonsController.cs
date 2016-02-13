@@ -9,20 +9,19 @@ using System.Web.Mvc;
 using Cartefact.Classes;
 using Cartefact.Models;
 
-namespace Cartefact.Controllers
+namespace Cartefact.Areas.Admin.Controllers
 {
-    [Authorize]
     public class PersonsController : Controller
     {
         private Context db = new Context();
 
-        // GET: Persons
+        // GET: Admin/Persons
         public ActionResult Index()
         {
             return View(db.Persons.ToList());
         }
 
-        // GET: Persons/Details/5
+        // GET: Admin/Persons/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -37,13 +36,13 @@ namespace Cartefact.Controllers
             return View(person);
         }
 
-        // GET: Persons/Create
+        // GET: Admin/Persons/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Persons/Create
+        // POST: Admin/Persons/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -60,7 +59,7 @@ namespace Cartefact.Controllers
             return View(person);
         }
 
-        // GET: Persons/Edit/5
+        // GET: Admin/Persons/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -75,7 +74,7 @@ namespace Cartefact.Controllers
             return View(person);
         }
 
-        // POST: Persons/Edit/5
+        // POST: Admin/Persons/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -91,7 +90,7 @@ namespace Cartefact.Controllers
             return View(person);
         }
 
-        // GET: Persons/Delete/5
+        // GET: Admin/Persons/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -106,7 +105,7 @@ namespace Cartefact.Controllers
             return View(person);
         }
 
-        // POST: Persons/Delete/5
+        // POST: Admin/Persons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
