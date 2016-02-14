@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CarsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PersonsController.cs" />
     <Compile Include="Areas\Me\Controllers\CarsController.cs" />
     <Compile Include="Areas\Me\Controllers\ProfilController.cs" />
@@ -213,7 +214,6 @@
     <Content Include="Areas\Me\Views\Cars\Delete.cshtml" />
     <Content Include="Areas\Me\Views\Cars\Details.cshtml" />
     <Content Include="Areas\Me\Views\Cars\Edit.cshtml" />
-    <Content Include="Areas\Me\Views\Cars\Index.cshtml" />
     <Content Include="Areas\Me\Views\Profil\Index.cshtml" />
     <Content Include="Areas\Me\Views\Profil\Edit.cshtml" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -221,6 +221,11 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\Cars\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Cars\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Cars\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Cars\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Cars\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

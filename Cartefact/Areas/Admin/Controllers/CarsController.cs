@@ -9,20 +9,19 @@ using System.Web.Mvc;
 using Cartefact.Classes;
 using Cartefact.Models;
 
-namespace Cartefact.Areas.Me.Controllers
+namespace Cartefact.Areas.Admin.Controllers
 {
-    [Authorize]
     public class CarsController : Controller
     {
         private Context db = new Context();
 
-        // GET: Me/Cars
+        // GET: Admin/Cars
         public ActionResult Index()
         {
-            return Redirect("~/Me/Profil");
+            return View(db.Cars.ToList());
         }
 
-        // GET: Me/Cars/Details/5
+        // GET: Admin/Cars/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -34,39 +33,24 @@ namespace Cartefact.Areas.Me.Controllers
             {
                 return HttpNotFound();
             }
-            if(car.Person.Id != HttpContext.User.Identity.Name)
-            {
-                return HttpNotFound();
-            }
             return View(car);
         }
 
-        // GET: Me/Cars/Create
+        // GET: Admin/Cars/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Me/Cars/Create
+        // POST: Admin/Cars/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Brand,Model,Color,Description,BuyingDate,Kilometers")] Car car)
+        public ActionResult Create([Bind(Include = "Id,Brand,Model,Color,Description,BuyingDate,Kilometers")] Car car)
         {
-            Person person = db.Persons.FirstOrDefault(p => p.Id == HttpContext.User.Identity.Name);
             if (ModelState.IsValid)
             {
-                car.Id = Guid.NewGuid().ToString();
-                car.Person = person;
-                if (Array.Exists(new[] { "Admin", "Trusted" }, e => e.Equals(person.Role.RoleName)))
-                {
-                    car.Status = db.Statuses.FirstOrDefault(s => s.StatusName == "Open");
-                }
-                else
-                {
-                    car.Status = db.Statuses.FirstOrDefault(s => s.StatusName == "Pending");
-                }
                 db.Cars.Add(car);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -75,7 +59,7 @@ namespace Cartefact.Areas.Me.Controllers
             return View(car);
         }
 
-        // GET: Me/Cars/Edit/5
+        // GET: Admin/Cars/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -87,24 +71,16 @@ namespace Cartefact.Areas.Me.Controllers
             {
                 return HttpNotFound();
             }
-            if (car.Person.Id != HttpContext.User.Identity.Name)
-            {
-                return HttpNotFound();
-            }
             return View(car);
         }
 
-        // POST: Me/Cars/Edit/5
+        // POST: Admin/Cars/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Brand,Model,Color,Description,BuyingDate,Kilometers")] Car car)
         {
-            Person person = db.Persons.FirstOrDefault(p => p.Id == HttpContext.User.Identity.Name);
-            if(person.Cars.Count(c => c.Id == car.Id) == 0){
-                return HttpNotFound();
-            }
             if (ModelState.IsValid)
             {
                 db.Entry(car).State = EntityState.Modified;
@@ -114,7 +90,7 @@ namespace Cartefact.Areas.Me.Controllers
             return View(car);
         }
 
-        // GET: Me/Cars/Delete/5
+        // GET: Admin/Cars/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -126,23 +102,14 @@ namespace Cartefact.Areas.Me.Controllers
             {
                 return HttpNotFound();
             }
-            if (car.Person.Id != HttpContext.User.Identity.Name)
-            {
-                return HttpNotFound();
-            }
             return View(car);
         }
 
-        // POST: Me/Cars/Delete/5
+        // POST: Admin/Cars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Person person = db.Persons.FirstOrDefault(p => p.Id == HttpContext.User.Identity.Name);
-            if (person.Cars.Count(c => c.Id == id) == 0)
-            {
-                return HttpNotFound();
-            }
             Car car = db.Cars.Find(id);
             db.Cars.Remove(car);
             db.SaveChanges();

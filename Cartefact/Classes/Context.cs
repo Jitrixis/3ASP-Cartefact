@@ -15,10 +15,5 @@ namespace Cartefact.Classes
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Rental> Rentals { get; set; }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Person>().
-        //}
     }
 }

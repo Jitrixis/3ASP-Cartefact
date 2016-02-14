@@ -67,32 +67,54 @@
 
         <div class="container">
             <div class="row">
-
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                Peugeot
-                                <small>207</small>
-                                <span class="fa fa-check text-success pull-right" data-toggle="tooltip" data-placement="top" title="Open"></span>
-                            </h4>
-                        </div>
-                        <div class="panel-body">
-                            <p>
-                                <span class="label label-default">Black</span>
-                                <span class="label label-default">2006</span>
-                                <span class="label label-default">175 000 km</span>
-                            </p>
-                            <p>
-                                Beautifull car
-                            </p>
-                        </div>
-                        <div class="panel-footer clearfix">
-                            @Html.ActionLink("More details", "Detail", "Cars", new { id = 1 }, new { @class = "btn btn-default btn-xs pull-left", role = "button" })
-                            @Html.ActionLink("Delete", "Delete", "Cars", new { id = 1 }, new { @class = "btn btn-danger btn-xs pull-right", role = "button" })
+                @foreach (var item in Model.Cars)
+                {
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    @Html.DisplayFor(modelItem => item.Brand)
+                                    <small>
+                                        @Html.DisplayFor(modelItem => item.Model)
+                                    </small>
+                                    @{ 
+                                        var cls = "";
+                                    }
+                                    @switch (item.Status.StatusName)
+                                    {
+                                        case "Open":
+                                            cls = "fa-check text-success";
+                                            break;
+                                        case "Pending":
+                                            cls = "fa-clock-o text-warning";
+                                            break;
+                                        case "Closed":
+                                            cls = "fa-times text-danger";
+                                            break;
+                                        default:
+                                            cls = "fa-question text-muted";
+                                            break;
+                                    }
+                                    <span class="fa pull-right @cls" data-toggle="tooltip" data-placement="top" title="@item.Status.StatusName"></span>
+                                </h4>
+                            </div>
+                            <div class="panel-body">
+                                <p>
+                                    <span class="label label-default">@Html.DisplayFor(modelItem => item.Color)</span>
+                                    <span class="label label-default">@Html.DisplayFor(modelItem => item.BuyingDate.Year)</span>
+                                    <span class="label label-default">@Html.DisplayFor(modelItem => item.Kilometers) km</span>
+                                </p>
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </p>
+                            </div>
+                            <div class="panel-footer clearfix">
+                                @Html.ActionLink("More details", "Details", "Cars", new { id = item.Id }, new { @class = "btn btn-default btn-xs pull-left", role = "button" })
+                                @Html.ActionLink("Delete", "Delete", "Cars", new { id = item.Id }, new { @class = "btn btn-danger btn-xs pull-right", role = "button" })
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
                 <div class="col-md-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -100,7 +122,7 @@
                         </div>
                         <div class="panel-body text-center">
                             <p>
-                                @Html.ActionLink("Add a car", "Create", "Cars", new { @class = "btn btn-primary", role = "button" })
+                                @Html.ActionLink("Add a car", "Create", "Cars", new { }, new { @class = "btn btn-primary", role = "button" })
                             </p>
                         </div>
                     </div>
