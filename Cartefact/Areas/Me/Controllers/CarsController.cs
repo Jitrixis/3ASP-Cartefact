@@ -52,12 +52,13 @@ namespace Cartefact.Areas.Me.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Brand,Model,Color,Description,BuyingDate,Kilometers")] Car car)
+        public ActionResult Create([Bind(Include = "Brand,Model,Color,Description,BuyingDate,Kilometers,Location")] Car car)
         {
             Person person = db.Persons.FirstOrDefault(p => p.Id == HttpContext.User.Identity.Name);
             if (ModelState.IsValid)
             {
                 car.Id = Guid.NewGuid().ToString();
+                car.Location.Id = Guid.NewGuid().ToString();
                 car.Person = person;
                 if (Array.Exists(new[] { "Admin", "Trusted" }, e => e.Equals(person.Role.RoleName)))
                 {
@@ -99,7 +100,7 @@ namespace Cartefact.Areas.Me.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Brand,Model,Color,Description,BuyingDate,Kilometers")] Car car)
+        public ActionResult Edit([Bind(Include = "Id,Brand,Model,Color,Description,BuyingDate,Kilometers,Location")] Car car)
         {
             Person person = db.Persons.FirstOrDefault(p => p.Id == HttpContext.User.Identity.Name);
             if(person.Cars.Count(c => c.Id == car.Id) == 0){

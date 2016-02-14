@@ -58,6 +58,30 @@
             @Html.DisplayFor(model => model.Kilometers)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.StatusName)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
