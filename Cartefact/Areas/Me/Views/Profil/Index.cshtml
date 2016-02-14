@@ -1,0 +1,112 @@
+﻿@model Cartefact.Models.Person
+
+@{
+    ViewBag.Title = "Profil";
+}
+
+<h2>
+    Profil
+    @Html.ActionLink("Edit your Profil", "Edit", null, new { @class = "btn btn-primary pull-right", role = "button" })
+</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nickname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nickname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrivingHabits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrivingHabits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DriverExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DriverExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.RoleName)
+        </dt>
+
+        <dd>
+            @if (Model.Role.RoleName == "Admin")
+            {
+                <span class="label label-primary">Staff</span>
+            }
+            else if(Model.Role.RoleName == "Trusted")
+            {
+                <span class="label label-success">Trusted</span>
+            }
+            else
+            {
+                <span class="label label-default">Regular</span>
+            }
+        </dd>
+
+        <hr />
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                Peugeot
+                                <small>207</small>
+                                <span class="fa fa-check text-success pull-right" data-toggle="tooltip" data-placement="top" title="Open"></span>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                <span class="label label-default">Black</span>
+                                <span class="label label-default">2006</span>
+                                <span class="label label-default">175 000 km</span>
+                            </p>
+                            <p>
+                                Beautifull car
+                            </p>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            @Html.ActionLink("More details", "Detail", "Cars", new { id = 1 }, new { @class = "btn btn-default btn-xs pull-left", role = "button" })
+                            @Html.ActionLink("Delete", "Delete", "Cars", new { id = 1 }, new { @class = "btn btn-danger btn-xs pull-right", role = "button" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">&nbsp;</h4>
+                        </div>
+                        <div class="panel-body text-center">
+                            <p>
+                                @Html.ActionLink("Add a car", "Create", "Cars", new { @class = "btn btn-primary", role = "button" })
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </dl>
+</div>

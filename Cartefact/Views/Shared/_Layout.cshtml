@@ -32,7 +32,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink((string)PageData["credentials"].Name, "Index", "Profil")</li>
+                        <li>@Html.ActionLink((string)PageData["credentials"].Name, "Index", "Profil", new { Area = "Me" }, new { })</li>
                         <li>@Html.ActionLink("Logout", "Index", "Logout")</li>
                     }
                     else
@@ -57,6 +57,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Script/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

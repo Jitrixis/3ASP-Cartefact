@@ -1,0 +1,8 @@
+﻿@using Cartefact.Classes
+@using Cartefact.Models
+@{
+    Person person = new Context().Persons.FirstOrDefault(p => p.Id == ViewContext.HttpContext.User.Identity.Name);
+    person = (person == null) ? new Person() : person;
+    PageData["credentials"] = person;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}

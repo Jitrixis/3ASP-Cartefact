@@ -158,6 +158,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\PersonsController.cs" />
+    <Compile Include="Areas\Me\Controllers\CarsController.cs" />
+    <Compile Include="Areas\Me\Controllers\ProfilController.cs" />
+    <Compile Include="Areas\Me\MeAreaRegistration.cs" />
     <Compile Include="Classes\Context.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -183,7 +186,10 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -201,6 +207,20 @@
     <Content Include="Areas\Admin\Views\Persons\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Persons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Persons\Index.cshtml" />
+    <Content Include="Areas\Me\Views\web.config" />
+    <Content Include="Areas\Me\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Me\Views\Cars\Create.cshtml" />
+    <Content Include="Areas\Me\Views\Cars\Delete.cshtml" />
+    <Content Include="Areas\Me\Views\Cars\Details.cshtml" />
+    <Content Include="Areas\Me\Views\Cars\Edit.cshtml" />
+    <Content Include="Areas\Me\Views\Cars\Index.cshtml" />
+    <Content Include="Areas\Me\Views\Profil\Index.cshtml" />
+    <Content Include="Areas\Me\Views\Profil\Edit.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -212,6 +232,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -229,14 +250,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
-    <Content Include="Views\Profil\Index.cshtml" />
-    <Content Include="Views\Profil\Edit.cshtml" />
-    <Content Include="Views\Profil\Member.cshtml" />
+    <Content Include="Views\Profil\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Me\Models\" />
+    <Folder Include="Areas\Me\Views\Shared\" />
     <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>
